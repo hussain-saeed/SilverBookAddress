@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>تعليمات الشحن - Silver Book</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #3b82f6;
+        --dark-color: #2d3436;
+        --bg-color: #f8fafc;
+        --white: #ffffff;
+        --error-color: #ef4444;
+        --success-color: #10b981;
+        --warning-bg: #fff5f5;
+        --page-pad: clamp(10px, 2.8vw, 28px);
+        --container-pad-y: clamp(1rem, 3.2vw, 2.85rem);
+        --container-pad-x: clamp(0.85rem, 3.5vw, 3rem);
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        font-size: 112.5%;
+        min-height: 100%;
+      }
+
+      @keyframes sb-warning-ambient {
+        0%,
+        100% {
+          background-color: #fffbfb;
+          box-shadow: 0 0 0 rgba(239, 68, 68, 0);
+        }
+        50% {
+          background-color: #ffc8c8;
+          box-shadow: 0 8px 40px rgba(239, 68, 68, 0.2);
+        }
+      }
+
+      @keyframes sb-warning-icon-round {
+        0% {
+          transform: rotate(0deg);
+        }
+        7% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      body {
+        font-family: "Tajawal", sans-serif;
+        margin: 0;
+        padding: var(--page-pad);
+        min-width: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        color: var(--dark-color);
+        font-size: 1.0625rem;
+        line-height: 1.85;
+        background: linear-gradient(
+          155deg,
+          #f8fafc 0%,
+          #eff6ff 22%,
+          #dbeafe 52%,
+          #93c5fd 82%,
+          var(--primary-color) 100%
+        );
+      }
+
+      .container {
+        max-width: min(1200px, 100%);
+        margin: 0 auto;
+        width: 100%;
+        min-width: 0;
+        background: var(--white);
+        padding: var(--container-pad-y) var(--container-pad-x);
+        border-radius: clamp(14px, 2.5vw, 20px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        text-align: right;
+        overflow-wrap: break-word;
+      }
+
+      .page-header {
+        direction: ltr;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: clamp(0.75rem, 2.5vw, 1.5rem);
+        margin-bottom: clamp(1rem, 3vw, 28px);
+        padding-bottom: clamp(0.75rem, 2vw, 15px);
+        border-bottom: 2px solid #e2e8f0;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .page-header .logo-wrap {
+        flex: 0 1 auto;
+        text-align: left;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .page-header .logo-wrap img {
+        max-width: min(200px, 72vw);
+        height: auto;
+        display: block;
+      }
+
+      .page-header h1 {
+        direction: rtl;
+        color: var(--primary-color);
+        text-align: right;
+        font-size: clamp(1.35rem, 3vw + 0.65rem, 2.05rem);
+        line-height: 1.35;
+        margin: 0;
+        flex: 1 1 12rem;
+        min-width: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .important-note {
+        background-color: #eff6ff;
+        border-inline-start: 5px solid var(--primary-color);
+        padding: clamp(0.85rem, 2.2vw, 1.1rem) clamp(1rem, 2.8vw, 1.35rem);
+        border-radius: 8px;
+        margin-bottom: 25px;
+        font-size: 1.07em;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .section {
+        margin-bottom: 25px;
+        text-align: right;
+      }
+
+      .section p {
+        text-align: right;
+      }
+
+      .section-title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        color: var(--primary-color);
+        font-weight: 800;
+        font-size: clamp(1.12rem, 1.6vw + 0.55rem, 1.35rem);
+        margin-bottom: 10px;
+        text-align: right;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .section-title .icon-location {
+        color: var(--primary-color);
+        font-size: 1.28rem;
+        line-height: 1;
+        flex-shrink: 0;
+        padding-inline-end: 0.15rem;
+        order: -1;
+      }
+
+      .section-title > span {
+        flex: 1 1 auto;
+        text-align: right;
+        min-width: 0;
+      }
+
+      .section-title-content {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: flex-end;
+        gap: 0.35rem 0.55rem;
+      }
+
+      .section-title-hint {
+        color: #94a3b8;
+        font-size: 0.78em;
+        font-weight: 400;
+      }
+
+      .icon-text-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        text-align: right;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .icon-text-row > span {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .icon-text-row > i {
+        flex-shrink: 0;
+        font-size: 1.12em;
+        margin-top: 0.35em;
+        line-height: 1;
+        padding-inline-end: 0.15rem;
+        order: -1;
+      }
+
+      .icon-text-row .icon-warning {
+        color: var(--error-color);
+      }
+
+      .warning-box {
+        position: relative;
+        margin: 30px 0;
+        background-color: #fffbfb;
+        border: 2px dashed var(--error-color);
+        padding: clamp(1rem, 2.5vw, 1.35rem) clamp(1rem, 3vw, 1.5rem);
+        border-radius: 12px;
+        text-align: right;
+        animation: sb-warning-ambient 1.85s ease-in-out infinite;
+      }
+
+      .warning-box h2 {
+        color: var(--error-color);
+        margin-top: 0;
+        font-size: clamp(1.18rem, 1.5vw + 0.68rem, 1.45rem);
+        line-height: 1.35;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        text-align: right;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .warning-box h2 > i {
+        display: inline-block;
+        color: var(--error-color);
+        font-size: 1.22em;
+        flex-shrink: 0;
+        padding-inline-end: 0.15rem;
+        order: -1;
+        transform-origin: center;
+        animation: sb-warning-icon-round 5s linear infinite;
+      }
+
+      .warning-box h2 > span {
+        flex: 1 1 auto;
+        text-align: right;
+        min-width: 0;
+      }
+
+      .example-card {
+        background: #f1f5f9;
+        padding: clamp(1rem, 2.5vw, 1.35rem) clamp(1rem, 3vw, 1.5rem);
+        border-radius: 12px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        text-align: right;
+      }
+
+      .example-card.success {
+        border-inline-start: 4px solid var(--success-color);
+      }
+
+      .example-card.error {
+        border-inline-start: 4px solid var(--error-color);
+      }
+
+      .example-title {
+        font-weight: 700;
+        font-size: 1.08em;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        text-align: right;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .example-title > i {
+        flex-shrink: 0;
+        font-size: 1.18em;
+        line-height: 1;
+        padding-inline-end: 0.15rem;
+        order: -1;
+      }
+
+      .example-title > span:last-of-type {
+        flex: 1 1 auto;
+        text-align: right;
+        min-width: 0;
+      }
+
+      .example-title .icon-success {
+        color: var(--success-color);
+      }
+
+      .example-title .icon-error {
+        color: var(--error-color);
+      }
+
+      .closing-message {
+        font-weight: 500;
+        font-size: 1.06em;
+        text-align: right;
+        margin: 1rem 0 0;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #64748b;
+        font-size: 1.05rem;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 20px;
+      }
+
+      .highlight {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+
+      ul {
+        padding-inline-start: clamp(16px, 3vw, 24px);
+        margin-inline-start: 0;
+        text-align: right;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* Small + medium: centered header (logo above title) */
+      @media (max-width: 1024px) {
+        .page-header {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .page-header .logo-wrap {
+          max-width: 100%;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+        }
+
+        .page-header .logo-wrap img {
+          margin-inline: auto;
+        }
+
+        .page-header h1 {
+          flex: none;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 380px) {
+        :root {
+          --page-pad: 8px;
+          --container-pad-x: 0.7rem;
+        }
+
+        .section-title,
+        .example-title {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .warning-box,
+        .warning-box h2 > i {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <div class="logo-wrap">
+          <img src="logo.png" alt="Silver Book Logo" />
+        </div>
+        <h1>دليل اختيار عنوان التوصيل بشكل صحيح</h1>
+      </header>
+
+      <div class="important-note">
+        أهم خطوة لضمان وصول طلبك هي اختيار "العنوان" بدقة متناهية من القوائم
+        المنسدلة.
+      </div>
+
+      <div class="section">
+        <div class="section-title">
+          <i class="fa-solid fa-location-dot icon-location" aria-hidden="true"></i>
+          <span class="section-title-content">
+            <span class="section-title-label">المركز</span>
+            <span class="section-title-hint">(المدينة أو المركز)</span>
+          </span>
+        </div>
+        <p>
+          هنا تقوم باختيار <strong>المدينة أو المركز</strong> الذي تتبع له
+          إدارياً.
+        </p>
+        <p class="icon-text-row">
+          <i
+            class="fa-solid fa-triangle-exclamation icon-warning"
+            aria-hidden="true"
+          ></i>
+          <span
+            ><em>ملحوظة:</em> إذا بحثت عن اسم المركز ولم يظهر في القائمة، فهذا
+            يعني للأسف أن خدمة التوصيل غير متاحة لهذا المركز حالياً.</span
+          >
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">
+          <i class="fa-solid fa-location-dot icon-location" aria-hidden="true"></i>
+          <span>المنطقة</span>
+        </div>
+        <p>
+          هنا تختار <strong>المكان الفعلي</strong> الذي تتواجد فيه (القرية أو
+          الحي السكني).
+        </p>
+        <ul>
+          <li>
+            إذا بحثت عن "قريتك" ولم تظهر، فهذا يعني أن التوصيل غير متاح لهذه
+            القرية.
+          </li>
+          <li>
+            إذا كنت تسكن في <strong>قلب المدينة/المركز</strong> نفسه (وليس قرية
+            تابعة له)، قم بالبحث عن اسم المركز مرة أخرى في خانة المنطقة
+            واختياره.
+          </li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <h2>
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+          <span>تحذير هام جداً</span>
+        </h2>
+        <p>
+          يُمنع تماماً اختيار منطقة "بديلة" لمجرد أن منطقتك لم تظهر في القائمة،
+          ثم كتابة العنوان الصحيح في تفاصيل الشارع.
+        </p>
+        <p>
+          <strong>النتيجة:</strong> سيتم إلغاء الأوردر تلقائياً، ولن نتمكن من رد
+          مبلغ الشحن؛ لأن شركة الشحن تقوم بخصمه فور إصدار البوليصة. تأكد تماماً
+          من ظهور منطقتك في القائمة قبل إتمام الدفع.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">
+          <i class="fa-solid fa-location-dot icon-location" aria-hidden="true"></i>
+          <span>أمثلة توضيحية للاختيار الصحيح</span>
+        </div>
+
+        <div class="example-card success">
+          <span class="example-title">
+            <i class="fa-solid fa-circle-check icon-success" aria-hidden="true"></i>
+            <span>مثال 1 (داخل حي بالمدينة):</span>
+          </span>
+          المحافظة: <strong>القاهرة</strong> <br />
+          المركز: <strong>القاهرة الجديدة</strong> <br />
+          المنطقة: <strong>التجمع الثالث</strong> <br />
+          <small>ثم تكتب تفاصيل عنوانك بدقة داخل التجمع الثالث.</small>
+        </div>
+
+        <div class="example-card success">
+          <span class="example-title">
+            <i class="fa-solid fa-circle-check icon-success" aria-hidden="true"></i>
+            <span>مثال 2 (داخل المركز نفسه):</span>
+          </span>
+          المحافظة: <strong>الشرقية</strong> <br />
+          المركز: <strong>أبو حماد</strong> <br />
+          المنطقة: <strong>أبو حماد</strong> <br />
+          <small
+            >يتم تكرار اسم المركز في خانة المنطقة إذا كنت تسكن في المدينة
+            نفسها.</small
+          >
+        </div>
+
+        <div class="example-card error">
+          <span class="example-title">
+            <i class="fa-solid fa-circle-xmark icon-error" aria-hidden="true"></i>
+            <span>مثال للاختيار الخاطئ:</span>
+          </span>
+          إذا كنت تسكن في (محافظة قنا - مركز قوص - قرية خزام) ولم تجد "خزام" في
+          القائمة..
+          <strong>لا تقترب من الاختيار العشوائي</strong> أو اختيار "قوص" وكتابة
+          "خزام" في التفاصيل، لأن الأوردر سيلغى فوراً.
+        </div>
+      </div>
+
+      <p class="closing-message">
+        نحن نوضح هذه التفاصيل حرصاً على وقتك ومالك، ولضمان تجربة شراء سعيدة.
+      </p>
+
+      <div class="footer">
+        مع تحيات إدارة <strong>سيلفر بوك - Silver Book</strong>
+      </div>
+    </div>
+  </body>
+</html>
