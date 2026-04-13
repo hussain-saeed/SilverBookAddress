@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>تعليمات الشحن - Silver Book</title>
+    <title>تعليمات اختيار العنوان - Silver Book</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
       rel="stylesheet"
@@ -46,12 +46,10 @@
       @keyframes sb-warning-ambient {
         0%,
         100% {
-          background-color: #fffbfb;
-          box-shadow: 0 0 0 rgba(239, 68, 68, 0);
+          background-color: #fae7e7;
         }
         50% {
-          background-color: #ffc8c8;
-          box-shadow: 0 8px 40px rgba(239, 68, 68, 0.2);
+          background-color: #fbdfdf;
         }
       }
 
@@ -83,7 +81,7 @@
         font-size: 1.0625rem;
         line-height: 1.85;
         background: linear-gradient(
-          155deg,
+          50deg,
           #f8fafc 0%,
           #eff6ff 22%,
           #dbeafe 52%,
@@ -199,13 +197,13 @@
         display: inline-flex;
         flex-wrap: wrap;
         align-items: baseline;
-        justify-content: flex-end;
+        justify-content: flex-start;
         gap: 0.35rem 0.55rem;
       }
 
       .section-title-hint {
         color: #94a3b8;
-        font-size: 0.78em;
+        font-size: 0.6em;
         font-weight: 400;
       }
 
@@ -418,7 +416,7 @@
         <div class="logo-wrap">
           <img src="logo.png" alt="Silver Book Logo" />
         </div>
-        <h1>دليل اختيار عنوان التوصيل بشكل صحيح</h1>
+        <h1>تعليمات اختيار عنوان التوصيل بشكل صحيح</h1>
       </header>
 
       <div class="important-note">
@@ -428,15 +426,19 @@
 
       <div class="section">
         <div class="section-title">
-          <i class="fa-solid fa-location-dot icon-location" aria-hidden="true"></i>
+          <i
+            class="fa-solid fa-location-dot icon-location"
+            aria-hidden="true"
+          ></i>
           <span class="section-title-content">
             <span class="section-title-label">المركز</span>
-            <span class="section-title-hint">(المدينة أو المركز)</span>
-          </span>
+            <span class="section-title-hint">
+                (أحيانًا بيظهر على الموقع بإسم "الحي" ودي غلطة بسيطة .. بنأكدلك إن المقصود بيه هو المركز)
+            </span>
         </div>
         <p>
           هنا تقوم باختيار <strong>المدينة أو المركز</strong> الذي تتبع له
-          إدارياً.
+          إداريًا.
         </p>
         <p class="icon-text-row">
           <i
@@ -445,14 +447,17 @@
           ></i>
           <span
             ><em>ملحوظة:</em> إذا بحثت عن اسم المركز ولم يظهر في القائمة، فهذا
-            يعني للأسف أن خدمة التوصيل غير متاحة لهذا المركز حالياً.</span
+            يعني للأسف أن خدمة التوصيل غير متاحة لهذا المركز حاليًا.</span
           >
         </p>
       </div>
 
       <div class="section">
         <div class="section-title">
-          <i class="fa-solid fa-location-dot icon-location" aria-hidden="true"></i>
+          <i
+            class="fa-solid fa-location-dot icon-location"
+            aria-hidden="true"
+          ></i>
           <span>المنطقة</span>
         </div>
         <p>
@@ -475,64 +480,96 @@
       <div class="warning-box">
         <h2>
           <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-          <span>تحذير هام جداً</span>
+          <span>تحذير هام جدًا</span>
         </h2>
         <p>
-          يُمنع تماماً اختيار منطقة "بديلة" لمجرد أن منطقتك لم تظهر في القائمة،
+          يمنع تمامًا اختيار منطقة "بديلة" لمجرد أن منطقتك لم تظهر في القائمة،
           ثم كتابة العنوان الصحيح في تفاصيل الشارع.
         </p>
         <p>
-          <strong>النتيجة:</strong> سيتم إلغاء الأوردر تلقائياً، ولن نتمكن من رد
-          مبلغ الشحن؛ لأن شركة الشحن تقوم بخصمه فور إصدار البوليصة. تأكد تماماً
-          من ظهور منطقتك في القائمة قبل إتمام الدفع.
+          <strong>النتيجة:</strong> سيتم إلغاء الأوردر من طرف شركة الشحن قبل
+          محاولة التوصيل، ولن نتمكن حينها من إعادة التوصيل أو رد مبلغ الشحن لأن
+          الشركة تكون قد خصمت هذا المبلغ من رصيدنا بالفعل.
         </p>
       </div>
 
       <div class="section">
         <div class="section-title">
-          <i class="fa-solid fa-location-dot icon-location" aria-hidden="true"></i>
-          <span>أمثلة توضيحية للاختيار الصحيح</span>
+          <i
+            class="fa-solid fa-location-dot icon-location"
+            aria-hidden="true"
+          ></i>
+          <span>أمثلة توضيحية</span>
         </div>
 
         <div class="example-card success">
           <span class="example-title">
-            <i class="fa-solid fa-circle-check icon-success" aria-hidden="true"></i>
-            <span>مثال 1 (داخل حي بالمدينة):</span>
+            <i
+              class="fa-solid fa-circle-check icon-success"
+              aria-hidden="true"
+            ></i>
+            <span>داخل حي بالمدينة</span>
           </span>
           المحافظة: <strong>القاهرة</strong> <br />
           المركز: <strong>القاهرة الجديدة</strong> <br />
           المنطقة: <strong>التجمع الثالث</strong> <br />
-          <small>ثم تكتب تفاصيل عنوانك بدقة داخل التجمع الثالث.</small>
+          <small>ثم تكتب كل التفاصيل الممكنة عن عنوانك في خانات الكتابة.</small>
         </div>
 
         <div class="example-card success">
           <span class="example-title">
-            <i class="fa-solid fa-circle-check icon-success" aria-hidden="true"></i>
-            <span>مثال 2 (داخل المركز نفسه):</span>
+            <i
+              class="fa-solid fa-circle-check icon-success"
+              aria-hidden="true"
+            ></i>
+            <span>داخل المركز نفسه</span>
           </span>
           المحافظة: <strong>الشرقية</strong> <br />
           المركز: <strong>أبو حماد</strong> <br />
           المنطقة: <strong>أبو حماد</strong> <br />
           <small
             >يتم تكرار اسم المركز في خانة المنطقة إذا كنت تسكن في المدينة
-            نفسها.</small
+            نفسها،
+            ثم تكتب كل التفاصيل الممكنة عن عنوانك في خانات الكتابة.
+            </small
+          >
+        </div>
+
+        <div class="example-card success">
+          <span class="example-title">
+            <i
+              class="fa-solid fa-circle-check icon-success"
+              aria-hidden="true"
+            ></i>
+            <span>داخل قرية تابعة للمركز</span>
+          </span>
+          المحافظة: <strong>الشرقية</strong> <br />
+          المركز: <strong>فاقوس</strong> <br />
+          المنطقة: <strong>السماعنة</strong> <br />
+          <small
+            >
+            يجب أن تظهر القرية في خانة المنطقة لاختيارها (كما في المثال) للتأكد أنها داخل نطاق التوصيل، وحينها فقط يمكنك كتابة تفاصيل عنوانك في خانات الكتابة.
+            </small
           >
         </div>
 
         <div class="example-card error">
           <span class="example-title">
-            <i class="fa-solid fa-circle-xmark icon-error" aria-hidden="true"></i>
-            <span>مثال للاختيار الخاطئ:</span>
+            <i
+              class="fa-solid fa-circle-xmark icon-error"
+              aria-hidden="true"
+            ></i>
+            <span>مثال للاختيار الخاطئ</span>
           </span>
-          إذا كنت تسكن في (محافظة قنا - مركز قوص - قرية خزام) ولم تجد "خزام" في
-          القائمة..
-          <strong>لا تقترب من الاختيار العشوائي</strong> أو اختيار "قوص" وكتابة
-          "خزام" في التفاصيل، لأن الأوردر سيلغى فوراً.
+          إذا كنت تسكن في (محافظة قنا - مركز قوص - قرية خزام) ولم تجد "قرية خزام" في
+          قائمة المناطق بعد محاولة البحث عنها
+          <strong>فلا تقترب أبدًا من الاختيار العشوائي</strong> أو اختيار "قوص" وكتابة
+          "قرية خزام" في التفاصيل لأن هذا التصرف سيتسبب في النهاية في إلغاء الأوردر قبل محاولة التوصيل.
         </div>
       </div>
 
       <p class="closing-message">
-        نحن نوضح هذه التفاصيل حرصاً على وقتك ومالك، ولضمان تجربة شراء سعيدة.
+        نحن نوضح هذه التفاصيل حرصًا على وقتك ومالك، ولضمان تجربة شراء سعيدة.
       </p>
 
       <div class="footer">
