@@ -339,6 +339,180 @@
         margin: 1rem 0 0;
       }
 
+      .important-links {
+        margin-top: clamp(2rem, 4.5vw, 2.85rem);
+        margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+        padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
+        border-top: 1px solid #e2e8f0;
+        text-align: right;
+        direction: rtl;
+      }
+
+      .important-links * {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .important-links .important-links__columns,
+      .important-links .important-links__col,
+      .important-links .important-links__list,
+      .important-links .important-links__item {
+        background: transparent !important;
+        box-shadow: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .important-links .important-links__link:hover,
+      .important-links .important-links__link:active,
+      .important-links .important-links__link:focus,
+      .important-links .important-links__link:focus-visible {
+        background: transparent !important;
+        box-shadow: none !important;
+        filter: none !important;
+        text-shadow: none !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .important-links__title {
+        font-family: "Tajawal", sans-serif;
+        font-weight: 800;
+        font-size: clamp(1.12rem, 1.1vw + 0.88rem, 1.28rem);
+        color: var(--dark-color);
+        margin: 0 0 clamp(1rem, 2vw, 1.35rem);
+        line-height: 1.45;
+      }
+
+      .important-links__columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 3vw, 2.25rem);
+        direction: rtl;
+        align-items: start;
+      }
+
+      .important-links__col {
+        min-width: 0;
+        direction: rtl;
+        text-align: right;
+      }
+
+      @media (max-width: 540px) {
+        .important-links__columns {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .important-links__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        padding-inline-start: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: clamp(0.9rem, 2.2vw, 1.2rem);
+      }
+
+      .important-links__list .important-links__item {
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        direction: rtl;
+      }
+
+      .important-links__link,
+      .important-links__link *,
+      .important-links__link::before,
+      .important-links__link::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .important-links__link {
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 0.45em;
+        max-width: 100%;
+        font-family: "Tajawal", sans-serif;
+        font-weight: 500;
+        font-size: clamp(1rem, 0.65vw + 0.92rem, 1.08rem);
+        line-height: 1.65;
+        text-align: right;
+        direction: rtl;
+        color: #2563eb;
+        text-decoration: none;
+        cursor: pointer;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none;
+        padding: 0;
+        transform: none !important;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .important-links__link-text {
+        color: inherit;
+        text-decoration: underline !important;
+        text-underline-offset: 0.18em;
+        text-decoration-thickness: 1px;
+        overflow-wrap: anywhere;
+      }
+
+      .important-links__link:hover,
+      .important-links__link:active,
+      .important-links__link:visited {
+        color: #2563eb !important;
+        background: transparent !important;
+        opacity: 1 !important;
+        text-decoration: none;
+        transform: none !important;
+        box-shadow: none !important;
+        filter: none !important;
+        text-shadow: none !important;
+      }
+
+      .important-links__link:hover .important-links__link-text,
+      .important-links__link:active .important-links__link-text,
+      .important-links__link:visited .important-links__link-text {
+        color: inherit;
+        text-decoration: underline !important;
+      }
+
+      .important-links__link-icon {
+        flex-shrink: 0;
+        font-size: 1.05em;
+        color: #2563eb !important;
+        text-decoration: none !important;
+      }
+
+      .important-links__link:hover .important-links__link-icon,
+      .important-links__link:active .important-links__link-icon,
+      .important-links__link:visited .important-links__link-icon {
+        color: #2563eb !important;
+      }
+
+      .important-links__link:hover {
+        outline: none !important;
+      }
+
+      .important-links__link:focus:not(:focus-visible) {
+        outline: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      .important-links__link:focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+        border-radius: 2px;
+        transition: none !important;
+        animation: none !important;
+      }
+
       .footer {
         text-align: center;
         margin-top: 40px;
@@ -571,6 +745,85 @@
       <p class="closing-message">
         نحن نوضح هذه التفاصيل حرصًا على وقتك ومالك، ولضمان تجربة شراء سعيدة.
       </p>
+
+      <section
+        class="important-links"
+        aria-labelledby="important-links-heading"
+      >
+        <h2 class="important-links__title" id="important-links-heading">
+          روابط هامة
+        </h2>
+        <div class="important-links__columns">
+          <div class="important-links__col">
+            <ul class="important-links__list">
+              <li class="important-links__item">
+                <a
+                  class="important-links__link"
+                  href="https://silverbook.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i
+                    class="fa-solid fa-cart-shopping important-links__link-icon"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="important-links__link-text"
+                    >زيارة الموقع وطلب كتاب</span>
+                </a>
+              </li>
+              <li class="important-links__item">
+                <a
+                  class="important-links__link"
+                  href="https://www.facebook.com/share/v/1Bg54kAvtE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i
+                    class="fa-solid fa-user-plus important-links__link-icon"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="important-links__link-text"
+                    >طريقة عمل حساب على الموقع وطلب كتاب</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="important-links__col">
+            <ul class="important-links__list">
+              <li class="important-links__item">
+                <a
+                  class="important-links__link"
+                  href="https://www.facebook.com/share/v/18WWvtMPHp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i
+                    class="fa-solid fa-credit-card important-links__link-icon"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="important-links__link-text"
+                    >طريقة طلب كتاب وكود باقة وتفعيل الكود</span>
+                </a>
+              </li>
+              <li class="important-links__item">
+                <a
+                  class="important-links__link"
+                  href="https://tinyurl.com/silver-book"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i
+                    class="fa-solid fa-circle-question important-links__link-icon"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="important-links__link-text"
+                    >الأسئلة والاستفسارات الشائعة</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <div class="footer">
         مع تحيات إدارة <strong>سيلفر بوك - Silver Book</strong>
