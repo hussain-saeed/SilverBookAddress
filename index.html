@@ -17,6 +17,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        prefix: "tw-",
+        corePlugins: {
+          preflight: false,
+        },
+      };
+    </script>
     <style>
       *,
       *::before,
@@ -337,6 +346,25 @@
         font-size: 1.06em;
         text-align: right;
         margin: 1rem 0 0;
+        padding-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+        margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+      }
+
+      /* Lower page blocks: moderate vertical rhythm (~py-8–py-10) + divider */
+      .page-section-spaced {
+        padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+        padding-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+        border-top: 1px solid rgba(226, 232, 240, 0.55);
+      }
+
+      .page-section-spaced--first {
+        border-top: none;
+        padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+      }
+
+      #customer-reviews.page-section-spaced {
+        overflow: visible;
       }
 
       .important-links {
@@ -346,6 +374,14 @@
         border-top: 1px solid #e2e8f0;
         text-align: right;
         direction: rtl;
+      }
+
+      .important-links.page-section-spaced {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+        padding-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+        border-top: 1px solid rgba(226, 232, 240, 0.55);
       }
 
       .important-links * {
@@ -513,6 +549,296 @@
         animation: none !important;
       }
 
+      /* Quick Notes — glass cards, RTL (icons mirror react-icons/fa6: info, list, truck) */
+      .quick-notes {
+        margin-top: clamp(1.25rem, 2.8vw, 1.85rem);
+        margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+        padding-top: clamp(1.1rem, 2.2vw, 1.5rem);
+        border-top: 1px solid rgba(226, 232, 240, 0.85);
+        text-align: right;
+        direction: rtl;
+      }
+
+      .quick-notes__title {
+        font-family: "Tajawal", sans-serif;
+        font-weight: 800;
+        font-size: clamp(1.12rem, 1.1vw + 0.88rem, 1.28rem);
+        color: var(--dark-color);
+        margin: 0 0 clamp(1rem, 2vw, 1.35rem);
+        line-height: 1.45;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.55rem;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .quick-notes__title > i {
+        flex-shrink: 0;
+        font-size: 1.15em;
+        color: var(--primary-color);
+        padding-inline-end: 0.1rem;
+        order: -1;
+      }
+
+      .quick-notes__title > span {
+        flex: 1 1 auto;
+        text-align: right;
+        min-width: 0;
+      }
+
+      .quick-notes__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2.2vw, 1.35rem);
+      }
+
+      .quick-notes__item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        margin: 0;
+        padding: clamp(0.95rem, 2.2vw, 1.2rem) clamp(1rem, 2.5vw, 1.35rem);
+        text-align: right;
+        direction: rtl;
+        background: rgba(255, 255, 255, 0.52);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 14px;
+        box-shadow: 0 4px 22px rgba(15, 23, 42, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.65);
+      }
+
+      .quick-notes__icon {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.15rem;
+        height: 2.15rem;
+        border-radius: 12px;
+        background: rgba(59, 130, 246, 0.12);
+        border: 1px solid rgba(59, 130, 246, 0.22);
+        color: var(--primary-color);
+        font-size: 1.05rem;
+        line-height: 1;
+        margin-top: 0.12em;
+        order: -1;
+      }
+
+      .quick-notes__icon i {
+        line-height: 1;
+      }
+
+      .quick-notes__text {
+        flex: 1 1 auto;
+        min-width: 0;
+        margin: 0;
+        font-size: clamp(1rem, 0.55vw + 0.94rem, 1.06rem);
+        line-height: 1.82;
+        color: var(--dark-color);
+      }
+
+      .quick-notes.page-section-spaced {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      /* Video — compact glass card only; FA fa-circle-check ≈ HiBadgeCheck; motion ≈ framer */
+      @keyframes video-section-card-in {
+        from {
+          opacity: 0;
+          transform: translate3d(0, 14px, 0) scale(0.99);
+        }
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+      }
+
+      .video-section {
+        margin-top: clamp(1.35rem, 2.8vw, 2rem);
+        margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+        padding: 0;
+        background: transparent;
+        text-align: right;
+        direction: rtl;
+      }
+
+      .video-section.page-section-spaced {
+        margin-top: 0;
+        margin-bottom: 0;
+        overflow: visible;
+        padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+        padding-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+      }
+
+      .video-section__card {
+        width: 100%;
+        max-width: min(700px, 100%);
+        margin-inline: auto;
+        padding: clamp(1rem, 2.5vw, 1.45rem);
+        background: linear-gradient(
+          152deg,
+          rgba(255, 255, 255, 0.58) 0%,
+          rgba(239, 246, 255, 0.48) 38%,
+          rgba(219, 234, 254, 0.42) 72%,
+          rgba(191, 219, 254, 0.36) 100%
+        );
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: clamp(14px, 2.2vw, 18px);
+        box-shadow: 0 10px 36px rgba(15, 23, 42, 0.08),
+          0 2px 10px rgba(15, 23, 42, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.65);
+        animation: video-section-card-in 0.55s cubic-bezier(0.22, 1, 0.36, 1)
+          both;
+      }
+
+      .video-section__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 260px);
+        gap: clamp(1.75rem, 3vw, 2rem);
+        align-items: center;
+        direction: rtl;
+      }
+
+      .video-section__copy {
+        min-width: 0;
+      }
+
+      .video-section__headline {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        margin: 0 0 0.55rem;
+        font-family: "Tajawal", sans-serif;
+        font-weight: 800;
+        font-size: clamp(1.02rem, 0.95vw + 0.85rem, 1.22rem);
+        line-height: 1.48;
+        color: var(--dark-color);
+        text-align: right;
+      }
+
+      .video-section__icon {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.35em;
+        font-size: 1.12rem;
+        color: #059669;
+        order: -1;
+      }
+
+      .video-section__headline-text {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .video-section__sub {
+        margin: 0;
+        font-size: clamp(0.94rem, 0.38vw + 0.88rem, 1.02rem);
+        line-height: 1.72;
+        color: #64748b;
+        font-weight: 500;
+        text-align: right;
+      }
+
+      .video-section__video-outer {
+        min-width: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .video-section__video-frame {
+        width: 100%;
+        max-width: clamp(240px, 52vw, 280px);
+        aspect-ratio: 9 / 16;
+        border-radius: 11px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        overflow: hidden;
+        background: #0f172a;
+      }
+
+      .video-section__video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+      }
+
+      @media (max-width: 768px) {
+        .video-section.page-section-spaced {
+          margin-inline: calc(-1 * var(--container-pad-x));
+          padding-inline: var(--container-pad-x);
+          width: auto;
+        }
+
+        .video-section__card {
+          max-width: none;
+          width: 100%;
+          padding: clamp(0.85rem, 2vw, 1.15rem);
+        }
+
+        .video-section__grid {
+          grid-template-columns: 1fr;
+          gap: clamp(1rem, 2.5vw, 1.35rem);
+          justify-items: stretch;
+        }
+
+        .video-section__copy {
+          text-align: right;
+          max-width: 100%;
+        }
+
+        .video-section__headline {
+          justify-content: flex-start;
+          text-align: right;
+        }
+
+        .video-section__icon {
+          order: -1;
+        }
+
+        .video-section__sub {
+          text-align: right;
+        }
+
+        .video-section__video-outer {
+          order: -1;
+          width: 100%;
+          max-width: none;
+        }
+
+        .video-section__video-frame {
+          max-width: 100%;
+          width: 100%;
+          max-height: min(72vh, 640px);
+        }
+      }
+
+      @media (max-width: 380px) {
+        .video-section__video-frame {
+          max-height: min(68vh, 560px);
+        }
+      }
+
       .footer {
         text-align: center;
         margin-top: 40px;
@@ -520,6 +846,16 @@
         font-size: 1.05rem;
         border-top: 1px solid #e2e8f0;
         padding-top: 20px;
+      }
+
+      .footer.page-section-spaced {
+        margin-top: 0;
+        text-align: center;
+        color: #64748b;
+        font-size: 1.05rem;
+        padding-top: clamp(1.25rem, 2.5vw, 1.5rem);
+        padding-bottom: clamp(0.5rem, 1.25vw, 0.75rem);
+        border-top: 1px solid rgba(226, 232, 240, 0.55);
       }
 
       .highlight {
@@ -535,6 +871,14 @@
 
       li {
         margin-bottom: 8px;
+      }
+
+      hr {
+        border: none;
+        height: 0;
+        margin: clamp(1rem, 2.5vw, 1.5rem) 0;
+        border-top: 1.5px solid rgba(185, 191, 197, 0.35);
+        background: transparent;
       }
 
       /* Small + medium: centered header (logo above title) */
@@ -581,10 +925,327 @@
         .warning-box h2 > i {
           animation: none !important;
         }
+
+        .video-section__card {
+          animation: none !important;
+        }
+      }
+
+      /* Important notice modal (on load) */
+      @keyframes notice-modal-backdrop-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes notice-modal-panel-in {
+        from {
+          opacity: 0;
+          transform: scale(0.92) translateZ(0);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateZ(0);
+        }
+      }
+
+      .notice-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 10050;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(0.65rem, 3.5vw, 1.25rem);
+        padding-bottom: max(
+          clamp(0.65rem, 3.5vw, 1.25rem),
+          env(safe-area-inset-bottom, 0px)
+        );
+        direction: rtl;
+        text-align: right;
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(14px) saturate(1.12);
+        -webkit-backdrop-filter: blur(14px) saturate(1.12);
+        animation: notice-modal-backdrop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .notice-modal__panel {
+        width: 100%;
+        max-width: min(56rem, 100%);
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2.5vw, 1.35rem);
+        padding: clamp(1.1rem, 3vw, 1.5rem);
+        background: linear-gradient(
+          152deg,
+          rgba(255, 255, 255, 0.78) 0%,
+          rgba(239, 246, 255, 0.62) 42%,
+          rgba(219, 234, 254, 0.52) 100%
+        );
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.38);
+        border-radius: clamp(16px, 2.8vw, 22px);
+        box-shadow: 0 22px 50px rgba(15, 23, 42, 0.18),
+          0 8px 22px rgba(15, 23, 42, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.75);
+        animation: notice-modal-panel-in 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.06s
+          both;
+        overflow: hidden;
+        transition: box-shadow 0.35s ease, transform 0.35s ease;
+        transform-origin: center center;
+      }
+
+      .notice-modal__body {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.85rem, 2vw, 1.1rem);
+        min-height: 0;
+      }
+
+      @media (min-width: 768px) {
+        .notice-modal__body {
+          overflow: visible;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .notice-modal__panel {
+          max-height: min(92dvh, 100%);
+        }
+
+        .notice-modal__body {
+          overflow-y: auto;
+          overflow-x: hidden;
+          -webkit-overflow-scrolling: touch;
+          flex: 1 1 auto;
+        }
+      }
+
+      .notice-modal__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(0.85rem, 2vw, 1.1rem);
+        align-items: stretch;
+        min-width: 0;
+      }
+
+      @media (min-width: 768px) {
+        .notice-modal__grid {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          gap: clamp(1rem, 2vw, 1.25rem);
+        }
+      }
+
+      .notice-modal__section {
+        min-width: 0;
+        border-radius: clamp(12px, 2vw, 14px);
+        padding: clamp(0.85rem, 2.2vw, 1.05rem) clamp(0.95rem, 2.5vw, 1.15rem);
+        font-size: clamp(0.94rem, 0.35vw + 0.88rem, 1.02rem);
+        line-height: 1.75;
+      }
+
+      @media (min-width: 768px) {
+        .notice-modal__section {
+          font-size: clamp(0.85rem, 0.22vw + 0.8rem, 0.94rem);
+          line-height: 1.58;
+        }
+
+        .notice-modal__section-title {
+          font-size: clamp(0.96rem, 0.35vw + 0.86rem, 1.04rem);
+        }
+      }
+
+      .notice-modal__section--alert {
+        background: rgba(254, 226, 226, 0.92);
+        border: 1px solid rgba(248, 113, 113, 0.35);
+        color: #7f1d1d;
+      }
+
+      .notice-modal__section--trust {
+        background: rgba(209, 250, 229, 0.88);
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        color: #064e3b;
+      }
+
+      .notice-modal__section-title {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin: 0 0 0.55rem;
+        font-family: "Tajawal", sans-serif;
+        font-weight: 800;
+        font-size: clamp(1.02rem, 0.5vw + 0.92rem, 1.14rem);
+        line-height: 1.45;
+      }
+
+      .notice-modal__section--alert .notice-modal__section-title {
+        color: #7f1d1d;
+      }
+
+      .notice-modal__section--trust .notice-modal__section-title {
+        color: #064e3b;
+      }
+
+      .notice-modal__icon {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top: 0.1em;
+      }
+
+      .notice-modal__section-body {
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .notice-modal__btn {
+        flex-shrink: 0;
+        align-self: stretch;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        border-radius: clamp(12px, 2vw, 14px);
+        padding: clamp(0.85rem, 2.2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem);
+        font-family: "Tajawal", sans-serif;
+        font-weight: 800;
+        font-size: clamp(1.02rem, 0.45vw + 0.92rem, 1.12rem);
+        color: #fff;
+        background: linear-gradient(
+          180deg,
+          #429cf8 0%,
+          var(--primary-color) 48%,
+          #2f7ad6 100%
+        );
+        box-shadow: none;
+        opacity: 1;
+        -webkit-tap-highlight-color: transparent;
+        appearance: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .notice-modal__btn:hover {
+        opacity: 0.9;
+      }
+
+      .notice-modal__btn:active {
+        opacity: 0.85;
+      }
+
+      .notice-modal__btn:focus,
+      .notice-modal__btn:focus-visible,
+      .notice-modal__btn:active {
+        outline: none;
+        box-shadow: none;
+      }
+
+      .notice-modal__btn::-moz-focus-inner {
+        border: 0;
+      }
+
+      .notice-modal.notice-modal--closing {
+        animation: none;
+        opacity: 0;
+        transition: opacity 0.28s ease;
+      }
+
+      .notice-modal.notice-modal--closing .notice-modal__panel {
+        animation: none;
+        opacity: 0;
+        transform: scale(0.96);
+        transition: opacity 0.28s ease, transform 0.28s ease;
+      }
+
+      .notice-modal[hidden] {
+        display: none !important;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .notice-modal,
+        .notice-modal__panel {
+          animation: none !important;
+        }
+
+        .notice-modal.notice-modal--closing,
+        .notice-modal.notice-modal--closing .notice-modal__panel {
+          transition: opacity 0.15s ease !important;
+          transform: none !important;
+        }
       }
     </style>
   </head>
   <body>
+    <div
+      id="important-notice-modal"
+      class="notice-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="notice-protocol-heading notice-trust-heading"
+      aria-describedby="notice-protocol-body notice-trust-body"
+    >
+      <div class="notice-modal__panel">
+        <div class="notice-modal__body">
+          <div class="notice-modal__grid">
+            <div class="notice-modal__section notice-modal__section--alert">
+              <h2 class="notice-modal__section-title" id="notice-protocol-heading">
+                <svg
+                  class="notice-modal__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span>التواصل مع الدعم</span>
+              </h2>
+              <p class="notice-modal__section-body" id="notice-protocol-body">
+                لو حبيت تتواصل مع الدعم فإنت طبعاً تشرفنا، لكن من فضلك تواصل من رقم واحد أو أكونت واحد، وعلى منصة واحدة بس (ويفضل تليجرام). ابعت مشكلتك مرة واحدة بس بكل تفاصيلها، زي الرقم اللي سجلت بيه على الموقع. إحنا بنرد على الرسايل من الأقدم للأحدث؛ فلما بتبعت أكتر من مرة، أو من أكتر من مكان، أو إن أكتر من شخص يبعتوا لنفس المشكلة، ده بيصعب المهمة جداً وبيضاعف الرسايل بدون داعي وبيأخر الرد عليك وعلى غيرك. الدعم كدة كدة بإذن الله هيوصل لرسالتك وهيرد عليها؛ فساعدنا عشان نقدر نساعدك، واصبر معانا شوية يا بطل.
+              </p>
+            </div>
+            <div class="notice-modal__section notice-modal__section--trust">
+              <h2 class="notice-modal__section-title" id="notice-trust-heading">
+                <svg
+                  class="notice-modal__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.7 9.606-8.705 10.253a.75.75 0 01-.59-.01A11.95 11.95 0 011.5 12c0-.68.057-1.35.166-2.001zm11.541 3.708a.75.75 0 00-1.06-1.06L10 11.94l-1.647-1.647a.75.75 0 10-1.06 1.06L9.47 13.47a.75.75 0 001.06 0l4.334-4.334z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span>حقك دايماً مضمون</span>
+              </h2>
+              <p class="notice-modal__section-body" id="notice-trust-body">
+                احنا مبنقولش إن مفيش مشاكل بتحصل، ده وارد جداً سواء في التعبئة أو
+                الشحن بسبب ضغط الطلبات الكبير اللي بيوصل للآلاف. لكن بنطمنك إن بإذن الله أي
+                مشكلة -حتى لو خارجة عن إرادتنا- هتتحل. بفضل الله مفيش حد تعامل معانا
+                إلا وفي النهاية أخد حقه كامل، وهدفنا الأول هو إنك تكون راضي عن
+                التجربة.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="notice-modal__btn" id="important-notice-dismiss">
+          تمام، فهمت
+        </button>
+      </div>
+    </div>
+
     <div class="container">
       <header class="page-header">
         <div class="logo-wrap">
@@ -606,9 +1267,7 @@
           ></i>
           <span class="section-title-content">
             <span class="section-title-label">المركز</span>
-            <span class="section-title-hint">
-                (أحيانًا بيظهر على الموقع بإسم "الحي" ودي غلطة بسيطة .. بنأكدلك إن المقصود بيه هو المركز)
-            </span>
+            
         </div>
         <p>
           هنا تقوم باختيار <strong>المدينة أو المركز</strong> الذي تتبع له
@@ -747,7 +1406,104 @@
       </p>
 
       <section
-        class="important-links"
+        class="quick-notes page-section-spaced page-section-spaced--first"
+        aria-labelledby="quick-notes-heading"
+      >
+        <h2 class="quick-notes__title" id="quick-notes-heading">
+          <span>ملاحظات سريعة</span>
+        </h2>
+        <ul class="quick-notes__list">
+          <li class="quick-notes__item">
+            <span class="quick-notes__icon" aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i></span>
+            <p class="quick-notes__text">
+              كلمة &quot;متوفر عدد كذا حالياً&quot; من الكتاب مش دايماً معناها إن دي الكمية اللي جاهزة للشحن 
+             فوراً؛ في أحيان كتير بيكون معناها إن دي الكمية المتاحة &quot;للحجز&quot;،
+              والشحن لسة هيبدأ بعد كام يوم.
+            </p>
+          </li>
+          <li class="quick-notes__item">
+            <span class="quick-notes__icon" aria-hidden="true"
+              ><i class="fa-solid fa-clipboard-list"></i></span>
+            <p class="quick-notes__text">
+              مفيش رسالة بتوصلك لما بتدفع ومش مطلوب منك تأكد حاجة مع الدعم. كل اللي
+              عليك انك تسجل دخول على الموقع وتفتح &quot;صفحة الطلبات&quot;، اللي تقدر توصلها من القايمة الجانبية من السهم اللي فوق على اليمين وتدور على الطلب المقصود تحديدًا لإنك ممكن تكون حاولت تعمل الطلب أكتر من مرة، لو لقيت الحالة بتاعته &quot;قيد
+              التنفيذ&quot; والفاتورة &quot;مدفوعة&quot; يبقا كدة تمام. رابط التتبع
+              بيظهر أول ما الأوردر يكون جاهز للشحن.
+            </p>
+          </li>
+          <li class="quick-notes__item">
+            <span class="quick-notes__icon" aria-hidden="true"
+              ><i class="fa-solid fa-truck"></i></span>
+            <p class="quick-notes__text">
+              عملية التوصيل نفسها بتاخد من 5 لـ 7 أيام عمل، وده نظام شركة الشحن
+              ملوش علاقة بينا ومنقدرش نتحكم فيه.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        class="video-section page-section-spaced"
+        aria-labelledby="video-section-heading"
+      >
+        <div class="video-section__card">
+          <div class="video-section__grid">
+            <div class="video-section__copy">
+              <h2 class="video-section__headline" id="video-section-heading">
+                <span class="video-section__icon" aria-hidden="true"
+                  ><i class="fa-solid fa-circle-check"></i></span>
+                <span class="video-section__headline-text"
+                  >مستر محمد صلاح بيرشحلك تجيب كتبك من &apos;سيلفر بوك&apos;</span>
+              </h2>
+              <p class="video-section__sub">
+                نفتكر مفيش حاجة أكتر من كدة تخليك تثق فينا
+              </p>
+            </div>
+            <div class="video-section__video-outer">
+              <div class="video-section__video-frame">
+                <video
+                  class="video-section__video"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  aria-label="فيديو عن سيلفر بوك"
+                >
+                  <source src="video.mp4" type="video/mp4" />
+                  متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script type="application/json" id="reviews-manifest-fallback">
+{"images":["Screenshot_1.png","Screenshot_10.png","Screenshot_11.png","Screenshot_12.png","Screenshot_13.png","Screenshot_14.png","Screenshot_15.png","Screenshot_16.png","Screenshot_17.png","Screenshot_18.png","Screenshot_2.png","Screenshot_3.png","Screenshot_4.png","Screenshot_5.png","Screenshot_6.png","Screenshot_7.png","Screenshot_8.png","Screenshot_9.png","WhatsApp Image 2026-02-18 at 4.02.20 PM.jpeg","WhatsApp Image 2026-02-18 at 4.0ي2.20 PM.jpeg","WhatsApp Image 2026-02-18 at 4.ي02.20 PM.jpeg","WhatsApp Image 2026-02-18 يat 4.02.20 PM.jpeg","WhatsApp Image 2026-02-1يي8 at 4.02.20 PM.jpeg","WhatsApp Image 2026-02يي-18 at 4.02.20 PM.jpeg","WhatsApp Image 2026-04-10 at 1.47.57 AM.jpeg","WhatsApp Image 2026-04-10 at 12.26.06 AM.jpeg","WhatsApp Image 2026-04-10 at 12.26.09 AM.jpeg","WhatsApp Image 2026-04-12 at 3.15.13 PM.jpeg","WhatsApp Image 2026-04-13 at 11.49.01 PM.jpeg","WhatsApp Image 2026-04-13 at 12.35.22 AM.jpeg","WhatsApp Image 2026-04-14 at 5.34.23 PM.jpeg","WhatsApp Image 2026-04-14 at 8.30.28 PM.jpeg","WhatsApp Image 2026-04-17 at 8.50.17 PM.jpeg"]}
+      </script>
+
+      <section
+        id="customer-reviews"
+        class="page-section-spaced tw-mx-auto tw-max-w-6xl tw-px-4 tw-font-[inherit] sm:tw-px-6"
+        aria-labelledby="customer-reviews-heading"
+        dir="rtl"
+      >
+        <h2
+          id="customer-reviews-heading"
+          class="tw-mb-5 tw-text-right tw-font-[inherit] tw-text-[clamp(1.12rem,1.1vw+0.88rem,1.35rem)] tw-font-extrabold tw-text-slate-800"
+        >
+          بعض آراء عملائنا
+        </h2>
+        <div
+          id="reviews-root"
+          class="tw-min-h-[120px] tw-text-right tw-text-slate-500"
+        >
+          جاري التحميل…
+        </div>
+      </section>
+
+      <section
+        class="important-links page-section-spaced"
         aria-labelledby="important-links-heading"
       >
         <h2 class="important-links__title" id="important-links-heading">
@@ -825,9 +1581,272 @@
         </div>
       </section>
 
-      <div class="footer">
+      <div class="footer page-section-spaced">
         مع تحيات إدارة <strong>سيلفر بوك - Silver Book</strong>
       </div>
+
+      <!-- Tailwind safelist for JS-built reviews button (CDN scans HTML only) -->
+      <span
+        class="tw-pointer-events-none tw-fixed tw-inset-0 tw-z-[-1] tw-opacity-0 tw-inline-flex tw-items-center tw-justify-center tw-rounded-xl tw-border tw-border-white/45 tw-bg-gradient-to-l tw-from-blue-500 tw-via-blue-600 tw-to-indigo-600 tw-px-8 tw-py-2.5 tw-font-[inherit] tw-text-[0.98rem] tw-font-semibold tw-text-white tw-shadow-[0_6px_22px_rgba(37,99,235,0.38)] tw-backdrop-blur-md tw-transition tw-duration-200 tw-ease-out hover:tw-brightness-110 hover:tw-shadow-[0_8px_28px_rgba(37,99,235,0.45)] active:tw-translate-y-px focus:tw-outline-none focus-visible:tw-ring-2 focus-visible:tw-ring-blue-300/70"
+        aria-hidden="true"
+      ></span>
     </div>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var BASE = "assets/images/";
+        var INITIAL = 9;
+
+        function filterImages(names) {
+          return names.filter(function (n) {
+            var lower = String(n).toLowerCase();
+            return lower !== "logo.png" && lower.indexOf("logo") === -1;
+          });
+        }
+
+        function shuffle(arr) {
+          var a = arr.slice();
+          for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+          }
+          return a;
+        }
+
+        function imgSrc(name) {
+          return BASE + encodeURIComponent(name);
+        }
+
+        var lightbox = (function () {
+          var overlay = document.createElement("div");
+          overlay.id = "reviews-lightbox";
+          overlay.setAttribute("role", "dialog");
+          overlay.setAttribute("aria-modal", "true");
+          overlay.setAttribute("aria-label", "معاينة الصورة بحجم كامل");
+          overlay.className =
+            "tw-pointer-events-none tw-fixed tw-inset-0 tw-z-[200] tw-flex tw-items-center tw-justify-center tw-bg-slate-900/85 tw-p-4 tw-opacity-0 tw-backdrop-blur-sm tw-transition-opacity tw-duration-200";
+          overlay.style.visibility = "hidden";
+
+          var closeBtn = document.createElement("button");
+          closeBtn.type = "button";
+          closeBtn.setAttribute("aria-label", "إغلاق");
+          closeBtn.className =
+            "tw-pointer-events-auto tw-absolute tw-top-4 tw-end-4 tw-z-20 tw-flex tw-h-11 tw-w-11 tw-items-center tw-justify-center tw-rounded-full tw-border tw-border-white/30 tw-bg-white/90 tw-text-lg tw-text-slate-800 tw-shadow-lg tw-transition hover:tw-bg-white";
+          closeBtn.innerHTML =
+            '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+
+          var inner = document.createElement("div");
+          inner.className =
+            "tw-pointer-events-auto tw-relative tw-max-h-[92vh] tw-max-w-[min(96vw,1200px)]";
+          inner.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+
+          var lbImg = document.createElement("img");
+          lbImg.className =
+            "tw-max-h-[90vh] tw-w-auto tw-max-w-full tw-rounded-lg tw-object-contain tw-shadow-2xl";
+          lbImg.alt = "";
+
+          overlay.appendChild(closeBtn);
+          inner.appendChild(lbImg);
+          overlay.appendChild(inner);
+
+          function open(src, alt) {
+            lbImg.src = src;
+            lbImg.alt = alt || "";
+            overlay.style.visibility = "visible";
+            overlay.classList.remove("tw-opacity-0", "tw-pointer-events-none");
+            overlay.classList.add("tw-opacity-100");
+            document.body.style.overflow = "hidden";
+          }
+
+          function close() {
+            overlay.classList.add("tw-opacity-0", "tw-pointer-events-none");
+            overlay.classList.remove("tw-opacity-100");
+            document.body.style.overflow = "";
+            lbImg.src = "";
+            window.setTimeout(function () {
+              overlay.style.visibility = "hidden";
+            }, 200);
+          }
+
+          closeBtn.addEventListener("click", close);
+          overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) close();
+          });
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && overlay.classList.contains("tw-opacity-100")) {
+              close();
+            }
+          });
+
+          document.body.appendChild(overlay);
+          return { open: open, close: close };
+        })();
+
+        function wrapItem(name, index) {
+          var cell = document.createElement("div");
+          cell.className =
+            "tw-mb-4 tw-break-inside-avoid tw-rounded-xl tw-bg-slate-100/40 tw-shadow-md tw-ring-1 tw-ring-slate-200/35 tw-transition-all tw-duration-300 tw-ease-out hover:tw--translate-y-1 hover:tw-shadow-xl";
+          var img = document.createElement("img");
+          img.src = imgSrc(name);
+          img.alt = "مراجعة عميل " + (index + 1);
+          img.loading = "lazy";
+          img.decoding = "async";
+          img.className =
+            "tw-block tw-h-auto tw-w-full tw-max-w-full tw-cursor-zoom-in tw-rounded-xl";
+          img.addEventListener("error", function () {
+            img.alt = "تعذر تحميل الصورة";
+            img.style.opacity = "0.4";
+          });
+          cell.addEventListener("click", function () {
+            lightbox.open(imgSrc(name), img.alt);
+          });
+          cell.appendChild(img);
+          return cell;
+        }
+
+        function buildMasonry(names, start, end) {
+          var col = document.createElement("div");
+          col.className =
+            "tw-columns-1 tw-gap-x-4 md:tw-columns-2 lg:tw-columns-3";
+          col.style.columnGap = "1rem";
+          var i;
+          for (i = start; i < end && i < names.length; i++) {
+            col.appendChild(wrapItem(names[i], i));
+          }
+          return col;
+        }
+
+        function loadManifest() {
+          return fetch(BASE + "manifest.json", { cache: "no-store" })
+            .then(function (r) {
+              if (!r.ok) throw new Error("manifest");
+              return r.json();
+            })
+            .then(function (data) {
+              return data.images || [];
+            })
+            .catch(function () {
+              var el = document.getElementById("reviews-manifest-fallback");
+              if (!el) return [];
+              try {
+                return JSON.parse(el.textContent).images || [];
+              } catch (e) {
+                return [];
+              }
+            });
+        }
+
+        function render(names) {
+          var root = document.getElementById("reviews-root");
+          if (!root) return;
+
+          names = filterImages(shuffle(names));
+
+          if (names.length === 0) {
+            root.textContent = "لا توجد صور متاحة.";
+            root.className = "tw-text-right tw-text-slate-500";
+            return;
+          }
+
+          root.textContent = "";
+          root.className = "";
+
+          var countFirst = Math.min(INITIAL, names.length);
+          root.appendChild(buildMasonry(names, 0, countFirst));
+
+          if (names.length <= INITIAL) return;
+
+          var extraWrap = document.createElement("div");
+          extraWrap.id = "reviews-extra-wrap";
+          extraWrap.setAttribute("aria-hidden", "true");
+          extraWrap.className = "tw-overflow-hidden";
+          extraWrap.style.maxHeight = "0";
+          extraWrap.style.opacity = "0";
+          extraWrap.style.transition =
+            "max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease";
+
+          var innerMasonry = buildMasonry(names, INITIAL, names.length);
+          innerMasonry.classList.add("tw-mt-4");
+          extraWrap.appendChild(innerMasonry);
+          root.appendChild(extraWrap);
+
+          var btnRow = document.createElement("div");
+          btnRow.className = "tw-mt-6 tw-flex tw-w-full tw-justify-start";
+          btnRow.dir = "ltr";
+
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.id = "reviews-toggle";
+          btn.textContent = "عرض المزيد";
+          btn.setAttribute("aria-expanded", "false");
+          btn.setAttribute("aria-controls", "reviews-extra-wrap");
+          btn.className =
+            "tw-cursor-pointer tw-inline-flex tw-items-center tw-justify-center tw-rounded-xl tw-border tw-border-white/45 tw-bg-gradient-to-l tw-from-blue-500 tw-via-blue-600 tw-to-indigo-600 tw-px-8 tw-py-2.5 tw-font-[inherit] tw-text-[0.98rem] tw-font-semibold tw-text-white tw-shadow-[0_6px_22px_rgba(37,99,235,0.38)] tw-backdrop-blur-md tw-transition tw-duration-200 tw-ease-out hover:tw-brightness-110 hover:tw-shadow-[0_8px_28px_rgba(37,99,235,0.45)] active:tw-translate-y-px focus:tw-outline-none focus-visible:tw-ring-2 focus-visible:tw-ring-blue-300/70";
+
+          btnRow.appendChild(btn);
+
+          var expanded = false;
+
+          function setExpanded(on) {
+            expanded = on;
+            btn.setAttribute("aria-expanded", on ? "true" : "false");
+            btn.textContent = on ? "عرض أقل" : "عرض المزيد";
+            if (on) {
+              extraWrap.style.maxHeight = extraWrap.scrollHeight + "px";
+              extraWrap.style.opacity = "1";
+              extraWrap.setAttribute("aria-hidden", "false");
+            } else {
+              extraWrap.style.maxHeight = "0px";
+              extraWrap.style.opacity = "0";
+              extraWrap.setAttribute("aria-hidden", "true");
+            }
+          }
+
+          btn.addEventListener("click", function () {
+            setExpanded(!expanded);
+          });
+
+          window.addEventListener("resize", function () {
+            if (expanded) {
+              extraWrap.style.maxHeight = extraWrap.scrollHeight + "px";
+            }
+          });
+
+          root.appendChild(btnRow);
+        }
+
+        loadManifest().then(render);
+      })();
+    </script>
+    <script>
+      (function () {
+        var modal = document.getElementById("important-notice-modal");
+        var btn = document.getElementById("important-notice-dismiss");
+        if (!modal || !btn) return;
+
+        document.body.style.overflow = "hidden";
+
+        btn.addEventListener("click", function () {
+          if (modal.hidden) return;
+          btn.disabled = true;
+          modal.classList.add("notice-modal--closing");
+          window.setTimeout(function () {
+            modal.hidden = true;
+            modal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+          }, 300);
+        });
+
+        requestAnimationFrame(function () {
+          btn.focus();
+        });
+      })();
+    </script>
   </body>
 </html>
